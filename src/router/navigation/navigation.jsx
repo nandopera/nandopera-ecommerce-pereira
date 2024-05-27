@@ -6,13 +6,9 @@ export function Navigation() {
         <>
             <div className="navi">
                 <div className='logoContainer'>
-                    <h1>Cheiro de Fulo</h1>
-                    <h2>e-commerce</h2>
+                    <h1>Coder E-commerce</h1>
                 </div>
                 <div className="navLinksContainer">
-                    <a className='navLink'>Início</a>
-                    <a className='navLink'>Produtos</a>
-                    <a className='navLink'>Contatos</a>
                     <a className='navLink'>SHOP</a>
                     <a className='navLink'>LOGIN</a>
                     <CartIcon />
