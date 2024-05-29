@@ -2,18 +2,18 @@ import { CartIcon } from '../../components/cart-icon/cart-icon'
 import './navigation.scss'
 
 export function Navigation() {
-    return (
-        <>
-            <div className="navi">
-                <div className='logoContainer'>
-                    <h1>Coder E-commerce</h1>
-                </div>
-                <div className="navLinksContainer">
-                    <a className='navLink'>SHOP</a>
-                    <a className='navLink'>LOGIN</a>
-                    <CartIcon />
-                </div>
-            </div>
-        </>
-    )
+  return (
+    <>
+      <div className="navigation">
+        <div className='logo-container'>
+          <h1>Coder E-commerce</h1>
+        </div>
+        <div className="nav-links-container">
+          <a className="nav-link">SHOP</a>
+          <a className="nav-link">LOGIN</a>
+          <CartIcon />
+        </div>
+      </div>
+    </>
+  )
 }

@@ -7,34 +7,26 @@
     height: 70px;
     width: 100%;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    margin-block: 2rem;
-}
-
-.logoContainer {
-    display: flex;
+    margin-bottom: 25px;
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    height: 100%;
-    width: 40ch;
-    padding: 25px;
-}
-
-.logoContainer h1{
-    font-family: 'lucidballpoint';
-    font-size: 4rem;
-}
-
-.navLinksContainer {
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 2rem;
-
-    .navLink {
-        cursor: pointer;
+  
+    .logo-container {
+      height: 100%;
+      width: 350px;
+      padding: 25px;
     }
-}
+  
+    .nav-links-container {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 32px;
+  
+      .nav-link {
+        cursor: pointer;
+      }
+    }
+  }
+  
