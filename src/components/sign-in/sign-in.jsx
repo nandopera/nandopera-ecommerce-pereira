@@ -3,25 +3,26 @@ import { Button } from "../button/button";
 import { FormInput } from "../form-input/form-input";
 import './sign-in.scss'
 
-const defaultFormFields = {
+const defaultFormFilds = {
   email: "",
   senha: ""
 }
 
 export function SignIn() {
-  const [formFields, setFormFields] = useState(defaultFormFields)
-  const {email, senha} = formFields
+
+  const [formFilds, setFormFilds] = useState(defaultFormFilds)
+  const { email, senha } = formFilds
 
   const handleChange = (event) => {
-    const {name, value} = event.target
-    setFormFields({...formFields, [name]: value})
-}
+    const { name , value } = event.target
+    setFormFilds({...formFilds, [name]: value})
+  }
 
-const handleSubmit = (event) => {
-  event.preventDefault()
-  console.log(formFields)
-  setFormFields(defaultFormFields)
-}
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    console.log(formFilds)
+    setFormFilds(defaultFormFilds)
+  }
 
   return (
     <div>
@@ -33,7 +34,7 @@ const handleSubmit = (event) => {
           requeried
           name="email"
           placeholder="Digite seu e-mail"
-          autocomplete="off"
+          autoComplete="off"
           onChange={handleChange}
           value={email}
         />

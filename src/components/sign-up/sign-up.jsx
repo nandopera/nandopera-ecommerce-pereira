@@ -39,7 +39,7 @@ export function SignUp() {
           requeried
           name="nome"
           placeholder="Digite seu nome"
-          autocomplete="off"
+          autoComplete="off"
           onChange={handleChange}
           value={nome}
         />
@@ -49,7 +49,7 @@ export function SignUp() {
           requeried
           name="email"
           placeholder="Digite seu e-mail"
-          autocomplete="off"
+          autoComplete="off"
           onChange={handleChange}
           value={email}
         />

@@ -4,10 +4,13 @@
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
-    background-color: darkgray;
 }
 
 @font-face {
     font-family: 'lucidballpoint';
     src: url(./assets/lucidballpoint.ttf);
+}
+
+body {
+    background-color: rgb(238, 243, 246);
 }

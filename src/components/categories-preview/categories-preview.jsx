@@ -1,10 +1,13 @@
 import { useContext } from "react"
-import { CategoriesContext } from "../../categoriesContext"
+import { useEffect } from "react"
+import { addCollentionAdDocuments, getCategoriesAndDocuments } from "../../utils/firebase"
+import { CategoriesContext } from "../../context/categoriesContext"
 import { CategoryPreview } from "../category-preview/category-preview"
+import { SHOP_DATA } from "../../shop-data"
 
 export function CategoriesPreview() {
 
-  const [categories, setCategories] = useState({})
+  const { categoriesMap } = useContext(CategoriesContext)
 
   // useEffect(() => {
   //   addCollentionAdDocuments('categories', SHOP_DATA)
@@ -13,8 +16,8 @@ export function CategoriesPreview() {
   return (
     <>
       {
-        Object.keys(categories).map(title => {
-          const products = categories[title]
+        Object.keys(categoriesMap).map(title => {
+          const products = categoriesMap[title]
           return <CategoryPreview key={title} title={title} products={products} />
         })
       }

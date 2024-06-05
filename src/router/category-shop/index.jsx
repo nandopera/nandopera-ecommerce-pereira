@@ -1,24 +1,15 @@
 import { useParams } from "react-router-dom"
-import { useEffect, useState } from "react"
-import { getCategoriesAndDocuments } from "../../utils/firebase"
-import { ProductCard } from "../../components/product-card/product-card"
+import { useEffect, useState, useContext } from "react"
+import { ProductCard } from "../../components/product-cart/product-cart"
 import { CategoryContainer, TitleCategoryShop } from "./style"
+import { CategoriesContext } from '../../context/categoriesContext'
 
 export function CategoryShop(){
 
   const { category } = useParams()
 
-  const [categoriesMap, setCategoriesMap] = useState({})
+  const { categoriesMap } = useContext(CategoriesContext)
   const [products, setProducts] = useState(categoriesMap[category])
-
-  useEffect(() => {
-    const getCategories = async () => {
-      const categoryMap = await getCategoriesAndDocuments()
-      setCategoriesMap(categoryMap)
-    }
-
-    getCategories()
-  },[])
 
   useEffect(() =>  {
     setProducts(categoriesMap[category])
