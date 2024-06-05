@@ -15,7 +15,7 @@ const app = initializeApp(firebaseConfig)
 
 export const db = getFirestore()
 
-export const addCollentionAdDocuments = async (collentionKey, objectsToAdd) => {
+export const addCollentionAndDocuments = async (collentionKey, objectsToAdd) => {
   const collectionRef = collection(db, collentionKey)
   const batch = writeBatch(db)
   

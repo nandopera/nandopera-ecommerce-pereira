@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { useEffect } from "react"
-import { addCollentionAdDocuments, getCategoriesAndDocuments } from "../../utils/firebase"
+import { addCollentionAndDocuments, getCategoriesAndDocuments } from "../../utils/firebase"
 import { CategoriesContext } from "../../context/categoriesContext"
 import { CategoryPreview } from "../category-preview/category-preview"
 import { SHOP_DATA } from "../../shop-data"
@@ -9,9 +9,9 @@ export function CategoriesPreview() {
 
   const { categoriesMap } = useContext(CategoriesContext)
 
-  // useEffect(() => {
-  //   addCollentionAdDocuments('categories', SHOP_DATA)
-  // },[])
+  useEffect(() => {
+    addCollentionAndDocuments('categories', SHOP_DATA)
+  },[])
 
   return (
     <>
