@@ -29,6 +29,11 @@ const categories = [
 ]
 
 export function Home() {
+  /* useEffect(() => {
+    console.log('Componente montou!')
+    fetch('https://randomuser.me/api/')
+    console.log('resposta\n', response)
+  }) */
   return (
     <div>
       <Categories categories={categories} />

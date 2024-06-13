@@ -11,7 +11,7 @@ export function Navigation() {
   const { isCartOpen } = useContext(CartContext)
   return (
     <>
-      <div className="navigation">
+      <nav className="navigation">
         <div className='logo-container'>
           <NavLink to="/">
             <h1>Coder E-commerce</h1>
@@ -27,7 +27,7 @@ export function Navigation() {
           <CartIcon />
         </div>
         { isCartOpen && <CartDropdown /> }
-      </div>
+      </nav>
       <Outlet />
     </>
   )
