@@ -9,9 +9,9 @@ export function CategoriesPreview() {
 
   const { categoriesMap } = useContext(CategoriesContext)
 
-  useEffect(() => {
-    addCollentionAndDocuments('categories', SHOP_DATA)
-  },[])
+  // useEffect(() => {
+  //   addCollentionAndDocuments('categories', SHOP_DATA)
+  // },[])
 
   return (
     <>

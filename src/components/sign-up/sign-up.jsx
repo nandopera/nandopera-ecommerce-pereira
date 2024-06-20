@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "../button/button";
 import { FormInput } from "../form-input/form-input";
+import { createAuthUserWithEmailPassword } from "../../utils/firebase";
 
 const defaultFormFields = {
   nome: "",
@@ -19,12 +20,21 @@ export function SignUp() {
     setFormFields({...formFields, [name]:value})
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
     if (senha !== confirmeSenha) {
       alert("As senhas não são iguais.")
       return
     }
+
+    try {
+      //Processo de criação de conta
+      const { } = await createAuthUserWithEmailPassword(email, senha)
+      console.log(user)
+    } catch (erro) {
+      console.log("erro", erro)
+    }
+
     console.log(formFields)
     setFormFields(defaultFormFields)
   }

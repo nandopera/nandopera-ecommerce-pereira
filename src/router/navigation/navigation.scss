@@ -12,6 +12,10 @@
     padding: 25px;
   }
 
+  .logo-container a {
+    text-decoration: none;
+  }
+
   .nav-links-container {
     width: 50%;
     display: flex;
@@ -21,6 +25,7 @@
 
     .nav-link {
       cursor: pointer;
+      text-decoration: none;
     }
   }
 }

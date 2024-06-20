@@ -1,14 +1,15 @@
 
 import { initializeApp } from 'firebase/app'
+import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth'
 import { collection, doc, getDocs, getFirestore, query, writeBatch } from 'firebase/firestore'
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_API_KEY,
-  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_MESSAGING_SANDER_ID,
-  appId: import.meta.env.VITE_APP_ID,
+  apiKey: "AIzaSyCzVxxlluPVN69IzA23vo3SNpsSfOY6pSA",
+  authDomain: "pera-ecommerce.firebaseapp.com",
+  projectId: "pera-ecommerce",
+  storageBucket: "pera-ecommerce.appspot.com",
+  messagingSenderId: "1022865294789",
+  appId: "1:1022865294789:web:52f6fd295e1d964f0eb7ac"
 }
 
 const app = initializeApp(firebaseConfig)
@@ -19,7 +20,7 @@ export const addCollentionAndDocuments = async (collentionKey, objectsToAdd) => 
   const collectionRef = collection(db, collentionKey)
   const batch = writeBatch(db)
   
-  // console.log("Inicio da função")
+  console.log("Inicio da função")
 
   objectsToAdd.forEach((object) => {
     const docRef = doc(collectionRef, object.title.toLowerCase())
@@ -42,4 +43,18 @@ export const getCategoriesAndDocuments = async () => {
   }, {})
 
   return categoryMap
+}
+
+const googleProvider = new GoogleAuthProvider()
+googleProvider.setCustomParameters({
+  prompt:'select_account'
+})
+
+export const auth = getAuth()
+export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider)
+
+export const createAuthUserWithEmailPassword = async (email, password) => {
+  if (!email || !password) return
+
+  return await createAuthUserWithEmailPassword(auth, email, password)
 }
