@@ -36,7 +36,7 @@ export function SignIn() {
         <FormInput 
           label="E-mail"
           type="email"
-          requeried
+          required
           name="email"
           placeholder="Digite seu e-mail"
           autoComplete="off"
@@ -46,7 +46,7 @@ export function SignIn() {
         <FormInput 
           label="Senha"
           type="password"
-          requeried
+          required
           name="senha"
           placeholder="Digite seu senha"
           onChange={handleChange}

@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { useEffect } from "react"
-import { addCollentionAndDocuments, getCategoriesAndDocuments } from "../../utils/firebase"
+import { addCollectionAndDocuments, getCategoriesAndDocuments } from "../../utils/firebase"
 import { CategoriesContext } from "../../context/categoriesContext"
 import { CategoryPreview } from "../category-preview/category-preview"
 import { SHOP_DATA } from "../../shop-data"

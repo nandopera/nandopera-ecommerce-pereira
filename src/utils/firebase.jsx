@@ -1,8 +1,23 @@
+// firebase.js
 
 import { initializeApp } from 'firebase/app'
-import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth'
-import { collection, doc, getDocs, getFirestore, query, writeBatch } from 'firebase/firestore'
+import {
+  GoogleAuthProvider,
+  getAuth,
+  signInWithPopup,
+  createUserWithEmailAndPassword,
+} from 'firebase/auth'
 
+import {
+  collection,
+  doc,
+  getDocs,
+  getFirestore,
+  query,
+  writeBatch,
+} from 'firebase/firestore'
+
+// Configuração do Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyCzVxxlluPVN69IzA23vo3SNpsSfOY6pSA",
   authDomain: "pera-ecommerce.firebaseapp.com",
@@ -14,13 +29,14 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig)
 
+// Firestore
 export const db = getFirestore()
 
-export const addCollentionAndDocuments = async (collentionKey, objectsToAdd) => {
-  const collectionRef = collection(db, collentionKey)
+export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
+  const collectionRef = collection(db, collectionKey)
   const batch = writeBatch(db)
-  
-  console.log("Inicio da função")
+
+  console.log("Início da função")
 
   objectsToAdd.forEach((object) => {
     const docRef = doc(collectionRef, object.title.toLowerCase())
@@ -36,7 +52,7 @@ export const getCategoriesAndDocuments = async () => {
   const q = query(collectionRef)
 
   const querySnapShot = await getDocs(q)
-  const categoryMap  = querySnapShot.docs.reduce((acc, docSnapShot) => {
+  const categoryMap = querySnapShot.docs.reduce((acc, docSnapShot) => {
     const { title, items } = docSnapShot.data()
     acc[title.toLowerCase()] = items
     return acc
@@ -45,16 +61,16 @@ export const getCategoriesAndDocuments = async () => {
   return categoryMap
 }
 
+// Autenticação
 const googleProvider = new GoogleAuthProvider()
-googleProvider.setCustomParameters({
-  prompt:'select_account'
-})
+googleProvider.setCustomParameters({ prompt: 'select_account' })
 
 export const auth = getAuth()
+
 export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider)
 
+// ✅ Função corrigida — cria usuário com e-mail e senha
 export const createAuthUserWithEmailPassword = async (email, password) => {
   if (!email || !password) return
-
-  return await createAuthUserWithEmailPassword(auth, email, password)
+  return await createUserWithEmailAndPassword(auth, email, password)
 }
