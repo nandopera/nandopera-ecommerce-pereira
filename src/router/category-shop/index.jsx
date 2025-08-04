@@ -4,27 +4,27 @@ import { ProductCard } from "../../components/product-cart/product-cart"
 import { CategoryContainer, TitleCategoryShop } from "./style"
 import { CategoriesContext } from '../../context/categoriesContext'
 
-export function CategoryShop(){
-
+export function CategoryShop() {
   const { category } = useParams()
-
   const { categoriesMap } = useContext(CategoriesContext)
-  const [products, setProducts] = useState(categoriesMap[category])
+  const [products, setProducts] = useState([])
 
-  useEffect(() =>  {
-    setProducts(categoriesMap[category])
-  },[category, categoriesMap])
+  useEffect(() => {
+    if (categoriesMap[category]) {
+      setProducts(categoriesMap[category])
+    }
+  }, [category, categoriesMap])
 
   return (
     <>
       <TitleCategoryShop>{category.toUpperCase()}</TitleCategoryShop>
       <CategoryContainer>
         {
-          products && products.map((product) => <ProductCard key={product.id} product={product} />)
+          products.length > 0
+            ? products.map((product) => <ProductCard key={product.id} product={product} />)
+            : <p>Carregando produtos...</p>
         }
       </CategoryContainer>
-        
-     
     </>
   )
 }

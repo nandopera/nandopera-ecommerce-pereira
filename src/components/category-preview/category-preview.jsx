@@ -6,8 +6,9 @@ export function CategoryPreview({ title, products }){
   return (
     <div className='category-preview-container'>
       <h2 className='title'>
-        <a><Link to={title}>{title.toUpperCase()}</Link></a>
-      </h2>
+  <Link to={`/shop/${title.toLowerCase()}`}>{title.toUpperCase()}</Link>
+</h2>
+
       <div className='preview'>
         {
           products.filter((_, idx) => idx  < 4)
